@@ -4,6 +4,9 @@ import ChatWidget from './components/ChatWidget';
 export default function App() {
   const [scrollY, setScrollY] = useState(0);
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
+  const [contactForm, setContactForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [formSubmitted, setFormSubmitted] = useState(false);
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -28,10 +31,11 @@ export default function App() {
       title: 'Wildlife Sanctuary', 
       desc: 'High-fence deer program with native Texas whitetail roaming cathedral-like forests.'
     },
-    { 
+    {
       image: '/images/cattle-ranch.png',
-      title: 'Working Ranch', 
-      desc: '200 head Black Angus cow-calf operation with 3,000+ hay bales annually.'
+      title: 'Working Ranch',
+      desc: '200 head Black Angus cow-calf operation with 3,000+ hay bales annually.',
+      objectPosition: 'right bottom'
     },
     { 
       image: '/images/creek-waterfall.png',
@@ -195,14 +199,13 @@ export default function App() {
             
             <div className="relative">
               <div className="aspect-[4/5] relative overflow-hidden rounded-sm">
-                <img 
-                  src="/images/trails-lifestyle.png" 
+                <img
+                  src="/images/trails-lifestyle.png"
                   alt="Couple walking trails at Woody Creek Ranch"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover object-left"
                 />
                 <div className="absolute inset-0 border border-gold/20"></div>
               </div>
-              <div className="absolute -bottom-6 -left-6 w-32 h-32 border border-gold/30"></div>
               <div className="absolute -top-6 -right-6 w-24 h-24 bg-gold/10"></div>
             </div>
           </div>
@@ -229,10 +232,11 @@ export default function App() {
                 key={index}
                 className="feature-card group relative aspect-[4/3] overflow-hidden rounded-sm cursor-pointer"
               >
-                <img 
+                <img
                   src={feature.image}
                   alt={feature.title}
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  style={feature.objectPosition ? { objectPosition: feature.objectPosition } : undefined}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -349,12 +353,18 @@ export default function App() {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a href="#" className="font-body text-xs tracking-widest uppercase bg-gold text-stone-950 px-10 py-4 hover:bg-stone-100 transition-colors">
+            <button
+              onClick={() => setShowContactModal(true)}
+              className="font-body text-xs tracking-widest uppercase bg-gold text-stone-950 px-10 py-4 hover:bg-stone-100 transition-colors cursor-pointer"
+            >
               Schedule a Visit
-            </a>
-            <a href="#" className="font-body text-xs tracking-widest uppercase border border-stone-600 text-stone-300 px-10 py-4 hover:border-gold hover:text-gold transition-colors">
+            </button>
+            <button
+              onClick={() => setShowContactModal(true)}
+              className="font-body text-xs tracking-widest uppercase border border-stone-600 text-stone-300 px-10 py-4 hover:border-gold hover:text-gold transition-colors cursor-pointer"
+            >
               Request Information
-            </a>
+            </button>
           </div>
         </div>
       </section>
@@ -381,6 +391,106 @@ export default function App() {
           </p>
         </div>
       </footer>
+
+      {/* Contact Modal */}
+      {showContactModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+          <div
+            className="absolute inset-0 bg-stone-950/80 backdrop-blur-sm"
+            onClick={() => {
+              setShowContactModal(false);
+              setFormSubmitted(false);
+              setContactForm({ name: '', email: '', phone: '', message: '' });
+            }}
+          ></div>
+          <div className="relative bg-stone-900 border border-stone-800 rounded-sm max-w-lg w-full p-8 md:p-10">
+            <button
+              onClick={() => {
+                setShowContactModal(false);
+                setFormSubmitted(false);
+                setContactForm({ name: '', email: '', phone: '', message: '' });
+              }}
+              className="absolute top-4 right-4 text-stone-500 hover:text-gold transition-colors"
+            >
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {formSubmitted ? (
+              <div className="text-center py-8">
+                <div className="text-gold mb-4">
+                  <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
+                  </svg>
+                </div>
+                <h3 className="font-display text-2xl mb-3">Thank You</h3>
+                <p className="font-body text-sm text-stone-400 font-light">
+                  We've received your inquiry and will be in touch shortly.
+                </p>
+              </div>
+            ) : (
+              <>
+                <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-4">Get in Touch</p>
+                <h3 className="font-display text-3xl mb-6">Request Information</h3>
+
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    setFormSubmitted(true);
+                  }}
+                  className="space-y-5"
+                >
+                  <div>
+                    <label className="font-body text-xs tracking-wide text-stone-400 block mb-2">Name</label>
+                    <input
+                      type="text"
+                      required
+                      value={contactForm.name}
+                      onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
+                      className="w-full bg-stone-800 border border-stone-700 rounded-sm px-4 py-3 font-body text-sm text-stone-100 focus:outline-none focus:border-gold transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-body text-xs tracking-wide text-stone-400 block mb-2">Email</label>
+                    <input
+                      type="email"
+                      required
+                      value={contactForm.email}
+                      onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
+                      className="w-full bg-stone-800 border border-stone-700 rounded-sm px-4 py-3 font-body text-sm text-stone-100 focus:outline-none focus:border-gold transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-body text-xs tracking-wide text-stone-400 block mb-2">Phone</label>
+                    <input
+                      type="tel"
+                      value={contactForm.phone}
+                      onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
+                      className="w-full bg-stone-800 border border-stone-700 rounded-sm px-4 py-3 font-body text-sm text-stone-100 focus:outline-none focus:border-gold transition-colors"
+                    />
+                  </div>
+                  <div>
+                    <label className="font-body text-xs tracking-wide text-stone-400 block mb-2">Message</label>
+                    <textarea
+                      rows={4}
+                      value={contactForm.message}
+                      onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
+                      className="w-full bg-stone-800 border border-stone-700 rounded-sm px-4 py-3 font-body text-sm text-stone-100 focus:outline-none focus:border-gold transition-colors resize-none"
+                    ></textarea>
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full font-body text-xs tracking-widest uppercase bg-gold text-stone-950 px-10 py-4 hover:bg-stone-100 transition-colors cursor-pointer"
+                  >
+                    Send Inquiry
+                  </button>
+                </form>
+              </>
+            )}
+          </div>
+        </div>
+      )}
 
       {/* Chat Widget */}
       <ChatWidget />
