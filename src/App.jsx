@@ -153,7 +153,7 @@ export default function App() {
           <div className="creek-line w-32 mx-auto my-10 animate-fade-up stagger-3"></div>
           
           <p className="font-body text-lg md:text-xl text-stone-300 font-light leading-relaxed max-w-2xl mx-auto animate-fade-up stagger-4">
-            1,500 acres of pristine North Texas landscape, thoughtfully preserved <br className="hidden md:block" />
+            1,500+ acres of pristine North Texas landscape, thoughtfully preserved <br className="hidden md:block" />
             for those who understand the value of legacy.
           </p>
           
@@ -247,7 +247,7 @@ export default function App() {
           {/* Stats Row */}
           <div className="mt-20 md:mt-24 grid grid-cols-2 md:grid-cols-4 gap-8 border-t border-b border-stone-800 py-12">
             {[
-              { number: '1,500', label: 'Acres' },
+              { number: '1,500+', label: 'Acres' },
               { number: '7', label: 'Private Lakes' },
               { number: '43', label: 'Years Assembled' },
               { number: '20', label: 'Minutes to Plano' },
