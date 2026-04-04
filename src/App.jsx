@@ -142,7 +142,7 @@ export default function App() {
         
         <div className="relative z-20 text-center px-6 max-w-5xl">
           <p className="font-body text-xs tracking-[0.4em] uppercase text-gold mb-8 animate-fade-up stagger-1">
-            Est. 1982 · Collin County, Texas
+            Est. 1982 · Collin County, TX
           </p>
           
           <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-light tracking-wide mb-6 animate-fade-up stagger-2">
@@ -372,7 +372,7 @@ export default function App() {
           <div className="flex flex-col md:flex-row justify-between items-center gap-8">
             <div className="font-display text-3xl tracking-wider text-center md:text-left">
               <span className="text-gold">W</span>OODY <span className="text-gold">C</span>REEK
-              <span className="block text-base italic text-stone-500 mt-1">Ranch · Collin County, Texas</span>
+              <span className="block text-base italic text-stone-500 mt-1">Ranch · Collin County, TX</span>
             </div>
             
             <div className="font-body text-xs text-stone-600 text-center md:text-right">
