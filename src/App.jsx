@@ -185,7 +185,7 @@ export default function App() {
               <p className="font-body text-stone-400 leading-relaxed mb-6 font-light">
                 For over four decades, this remarkable property has been carefully assembled and stewarded—
                 a testament to patient vision and deep respect for the land. What began in 1982 has grown
-                into one of the most diverse and pristine properties in all of North Texas, just 20 minutes north of Plano, Texas.
+                into one of the most diverse and pristine properties in all of North Texas. Located just 20 minutes north of Plano, Texas.
               </p>
               <p className="font-body text-stone-400 leading-relaxed font-light">
                 Now, we invite a select few families to become part of this legacy. Not through subdivision,
