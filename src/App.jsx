@@ -87,12 +87,11 @@ export default function App() {
           transform: translateY(-8px);
         }
 
-        .hero-overlay {
-          background: linear-gradient(
-            to bottom,
-            rgba(15, 23, 42, 0.6) 0%,
-            rgba(30, 58, 138, 0.7) 50%,
-            rgba(59, 130, 246, 0.8) 100%
+        .blue-gradient-overlay {
+          background: linear-gradient(to bottom, 
+            rgb(30 41 59 / 0.7) 0%,
+            rgb(30 58 138 / 0.75) 50%,
+            rgb(37 99 235 / 0.8) 100%
           );
         }
       `}</style>
@@ -133,7 +132,8 @@ export default function App() {
             alt="Woody Creek Ranch aerial view"
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-0' : 'opacity-100'}`}
           />
-          <div className="hero-overlay absolute inset-0"></div>
+          {/* Blue Gradient Overlay */}
+          <div className="absolute inset-0 blue-gradient-overlay"></div>
         </div>
         
         {/* Decorative elements */}
@@ -145,29 +145,29 @@ export default function App() {
             Est. 1982 · Collin County, TX
           </p>
           
-          <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-light tracking-wide mb-6 animate-fade-up stagger-2">
+          <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-light tracking-wide mb-6 animate-fade-up stagger-2 text-white">
             Woody Creek
-            <span className="block text-4xl md:text-5xl lg:text-6xl italic text-stone-200 mt-2">Ranch</span>
+            <span className="block text-4xl md:text-5xl lg:text-6xl italic text-blue-100 mt-2">Ranch</span>
           </h1>
           
           <div className="creek-line w-32 mx-auto my-10 animate-fade-up stagger-3"></div>
           
-          <p className="font-body text-lg md:text-xl text-stone-200 font-light leading-relaxed max-w-2xl mx-auto animate-fade-up stagger-4">
+          <p className="font-body text-lg md:text-xl text-blue-100 font-light leading-relaxed max-w-2xl mx-auto animate-fade-up stagger-4">
             1,500+ acres of pristine North Texas landscape, thoughtfully preserved <br className="hidden md:block" />
             for those who understand the value of legacy.
           </p>
           
           <div className="mt-12 animate-fade-up stagger-4">
-            <a href="#story" className="font-body text-xs tracking-widest uppercase border border-gold text-gold px-10 py-4 hover:bg-gold hover:text-stone-950 transition-all duration-300 inline-block">
+            <a href="#story" className="font-body text-xs tracking-widest uppercase border-2 border-gold text-gold px-10 py-4 hover:bg-gold hover:text-stone-950 transition-all duration-300 inline-block">
               Discover the Land
             </a>
           </div>
         </div>
         
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70 z-20">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/80 z-20">
           <span className="font-body text-xs tracking-widest">SCROLL</span>
-          <div className="w-px h-12 bg-gradient-to-b from-white/50 to-transparent"></div>
+          <div className="w-px h-12 bg-gradient-to-b from-white/60 to-transparent"></div>
         </div>
       </section>
 
