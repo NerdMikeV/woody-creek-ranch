@@ -90,9 +90,9 @@ export default function App() {
         .hero-overlay {
           background: linear-gradient(
             to bottom,
-            rgba(28, 25, 23, 0.4) 0%,
-            rgba(28, 25, 23, 0.6) 50%,
-            rgba(28, 25, 23, 0.9) 100%
+            rgba(25, 39, 75, 0.4) 0%,
+            rgba(30, 58, 138, 0.6) 50%,
+            rgba(37, 99, 235, 0.9) 100%
           );
         }
       `}</style>
