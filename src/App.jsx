@@ -90,9 +90,9 @@ export default function App() {
         .hero-overlay {
           background: linear-gradient(
             to bottom,
-            rgba(25, 39, 75, 0.4) 0%,
-            rgba(30, 58, 138, 0.6) 50%,
-            rgba(37, 99, 235, 0.9) 100%
+            rgba(15, 23, 42, 0.6) 0%,
+            rgba(30, 58, 138, 0.7) 50%,
+            rgba(59, 130, 246, 0.8) 100%
           );
         }
       `}</style>
@@ -137,8 +137,8 @@ export default function App() {
         </div>
         
         {/* Decorative elements */}
-        <div className="absolute top-20 left-10 w-64 h-64 border border-stone-700/30 rounded-full z-10"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 border border-stone-700/20 rounded-full z-10"></div>
+        <div className="absolute top-20 left-10 w-64 h-64 border border-white/20 rounded-full z-10"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 border border-white/10 rounded-full z-10"></div>
         
         <div className="relative z-20 text-center px-6 max-w-5xl">
           <p className="font-body text-xs tracking-[0.4em] uppercase text-gold mb-8 animate-fade-up stagger-1">
@@ -147,12 +147,12 @@ export default function App() {
           
           <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-light tracking-wide mb-6 animate-fade-up stagger-2">
             Woody Creek
-            <span className="block text-4xl md:text-5xl lg:text-6xl italic text-stone-400 mt-2">Ranch</span>
+            <span className="block text-4xl md:text-5xl lg:text-6xl italic text-stone-200 mt-2">Ranch</span>
           </h1>
           
           <div className="creek-line w-32 mx-auto my-10 animate-fade-up stagger-3"></div>
           
-          <p className="font-body text-lg md:text-xl text-stone-300 font-light leading-relaxed max-w-2xl mx-auto animate-fade-up stagger-4">
+          <p className="font-body text-lg md:text-xl text-stone-200 font-light leading-relaxed max-w-2xl mx-auto animate-fade-up stagger-4">
             1,500+ acres of pristine North Texas landscape, thoughtfully preserved <br className="hidden md:block" />
             for those who understand the value of legacy.
           </p>
@@ -165,9 +165,9 @@ export default function App() {
         </div>
         
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-stone-500 z-20">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/70 z-20">
           <span className="font-body text-xs tracking-widest">SCROLL</span>
-          <div className="w-px h-12 bg-gradient-to-b from-stone-500 to-transparent"></div>
+          <div className="w-px h-12 bg-gradient-to-b from-white/50 to-transparent"></div>
         </div>
       </section>
 
