@@ -87,12 +87,11 @@ export default function App() {
           transform: translateY(-8px);
         }
 
-        .hero-overlay {
-          background: linear-gradient(
-            to bottom,
-            rgba(28, 25, 23, 0.4) 0%,
-            rgba(28, 25, 23, 0.6) 50%,
-            rgba(28, 25, 23, 0.9) 100%
+        .blue-gradient-overlay {
+          background: linear-gradient(to bottom, 
+            rgb(30 41 59 / 0.7) 0%,
+            rgb(30 58 138 / 0.75) 50%,
+            rgb(37 99 235 / 0.8) 100%
           );
         }
       `}</style>
@@ -133,41 +132,42 @@ export default function App() {
             alt="Woody Creek Ranch aerial view"
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-0' : 'opacity-100'}`}
           />
-          <div className="hero-overlay absolute inset-0"></div>
+          {/* Blue Gradient Overlay */}
+          <div className="absolute inset-0 blue-gradient-overlay"></div>
         </div>
         
         {/* Decorative elements */}
-        <div className="absolute top-20 left-10 w-64 h-64 border border-stone-700/30 rounded-full z-10"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 border border-stone-700/20 rounded-full z-10"></div>
+        <div className="absolute top-20 left-10 w-64 h-64 border border-white/20 rounded-full z-10"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 border border-white/10 rounded-full z-10"></div>
         
         <div className="relative z-20 text-center px-6 max-w-5xl">
           <p className="font-body text-xs tracking-[0.4em] uppercase text-gold mb-8 animate-fade-up stagger-1">
             Est. 1982 · Collin County, TX
           </p>
           
-          <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-light tracking-wide mb-6 animate-fade-up stagger-2">
+          <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-light tracking-wide mb-6 animate-fade-up stagger-2 text-white">
             Woody Creek
-            <span className="block text-4xl md:text-5xl lg:text-6xl italic text-stone-400 mt-2">Ranch</span>
+            <span className="block text-4xl md:text-5xl lg:text-6xl italic text-blue-100 mt-2">Ranch</span>
           </h1>
           
           <div className="creek-line w-32 mx-auto my-10 animate-fade-up stagger-3"></div>
           
-          <p className="font-body text-lg md:text-xl text-stone-300 font-light leading-relaxed max-w-2xl mx-auto animate-fade-up stagger-4">
+          <p className="font-body text-lg md:text-xl text-blue-100 font-light leading-relaxed max-w-2xl mx-auto animate-fade-up stagger-4">
             1,500+ acres of pristine North Texas landscape, thoughtfully preserved <br className="hidden md:block" />
             for those who understand the value of legacy.
           </p>
           
           <div className="mt-12 animate-fade-up stagger-4">
-            <a href="#story" className="font-body text-xs tracking-widest uppercase border border-gold text-gold px-10 py-4 hover:bg-gold hover:text-stone-950 transition-all duration-300 inline-block">
+            <a href="#story" className="font-body text-xs tracking-widest uppercase border-2 border-gold text-gold px-10 py-4 hover:bg-gold hover:text-stone-950 transition-all duration-300 inline-block">
               Discover the Land
             </a>
           </div>
         </div>
         
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-stone-500 z-20">
+        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/80 z-20">
           <span className="font-body text-xs tracking-widest">SCROLL</span>
-          <div className="w-px h-12 bg-gradient-to-b from-stone-500 to-transparent"></div>
+          <div className="w-px h-12 bg-gradient-to-b from-white/60 to-transparent"></div>
         </div>
       </section>
 
