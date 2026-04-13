@@ -86,6 +86,15 @@ export default function App() {
         .feature-card:hover {
           transform: translateY(-8px);
         }
+
+        .hero-overlay {
+          background: linear-gradient(
+            to bottom,
+            rgba(0, 0, 0, 0.3) 0%,
+            rgba(0, 0, 0, 0.5) 50%,
+            rgba(0, 0, 0, 0.7) 100%
+          );
+        }
       `}</style>
 
       {/* Navigation */}
@@ -124,8 +133,8 @@ export default function App() {
             alt="Woody Creek Ranch aerial view"
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-0' : 'opacity-100'}`}
           />
-          {/* Dark Overlay */}
-          <div className="absolute inset-0 bg-stone-950/60"></div>
+          {/* Hero Overlay */}
+          <div className="absolute inset-0 hero-overlay"></div>
         </div>
         
         {/* Decorative elements */}
