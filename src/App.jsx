@@ -87,11 +87,12 @@ export default function App() {
           transform: translateY(-8px);
         }
 
-        .blue-gradient-overlay {
+        .natural-gradient-overlay {
           background: linear-gradient(to bottom, 
-            rgb(30 41 59 / 0.7) 0%,
-            rgb(30 58 138 / 0.75) 50%,
-            rgb(37 99 235 / 0.8) 100%
+            rgb(41 37 36 / 0.6) 0%,
+            rgb(68 64 60 / 0.7) 40%,
+            rgb(87 83 74 / 0.75) 70%,
+            rgb(120 113 108 / 0.8) 100%
           );
         }
       `}</style>
@@ -132,8 +133,8 @@ export default function App() {
             alt="Woody Creek Ranch aerial view"
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-0' : 'opacity-100'}`}
           />
-          {/* Blue Gradient Overlay */}
-          <div className="absolute inset-0 blue-gradient-overlay"></div>
+          {/* Natural Gradient Overlay */}
+          <div className="absolute inset-0 natural-gradient-overlay"></div>
         </div>
         
         {/* Decorative elements */}
@@ -147,12 +148,12 @@ export default function App() {
           
           <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-light tracking-wide mb-6 animate-fade-up stagger-2 text-white">
             Woody Creek
-            <span className="block text-4xl md:text-5xl lg:text-6xl italic text-blue-100 mt-2">Ranch</span>
+            <span className="block text-4xl md:text-5xl lg:text-6xl italic text-stone-100 mt-2">Ranch</span>
           </h1>
           
           <div className="creek-line w-32 mx-auto my-10 animate-fade-up stagger-3"></div>
           
-          <p className="font-body text-lg md:text-xl text-blue-100 font-light leading-relaxed max-w-2xl mx-auto animate-fade-up stagger-4">
+          <p className="font-body text-lg md:text-xl text-stone-200 font-light leading-relaxed max-w-2xl mx-auto animate-fade-up stagger-4">
             1,500+ acres of pristine North Texas landscape, thoughtfully preserved <br className="hidden md:block" />
             for those who understand the value of legacy.
           </p>
