@@ -384,7 +384,7 @@ export default function App() {
           <div className="creek-line w-full mt-12 mb-8 opacity-30"></div>
           
           <p className="font-body text-xs text-stone-700 text-center tracking-wide">
-            © 2024 Woody Creek Ranch. All rights reserved.
+            © 2026 Woody Creek Ranch. All rights reserved.
           </p>
         </div>
       </footer>
