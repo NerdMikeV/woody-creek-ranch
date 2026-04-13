@@ -47,32 +47,35 @@ export default function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-stone-950 text-stone-100 overflow-x-hidden" style={{ fontFamily: "'Cormorant Garamond', Georgia, serif" }}>
+    <div className="min-h-screen bg-stone-950 text-stone-100 overflow-x-hidden">
       
       {/* Fonts & Styles */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Libre+Franklin:wght@200;300;400;500&display=swap');
         
-        .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
-        .font-body { font-family: 'Libre Franklin', sans-serif; }
-        
-        .text-gold { color: #c9a962; }
-        .bg-gold { background-color: #c9a962; }
-        .border-gold { border-color: #c9a962; }
-        
-        .animate-fade-up {
-          animation: fadeUp 1s ease-out forwards;
+        body {
+          font-family: 'Cormorant Garamond', Georgia, serif;
         }
         
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(40px); }
-          to { opacity: 1; transform: translateY(0); }
+        .font-display { 
+          font-family: 'Cormorant Garamond', Georgia, serif; 
         }
         
-        .stagger-1 { animation-delay: 0.1s; opacity: 0; }
-        .stagger-2 { animation-delay: 0.3s; opacity: 0; }
-        .stagger-3 { animation-delay: 0.5s; opacity: 0; }
-        .stagger-4 { animation-delay: 0.7s; opacity: 0; }
+        .font-body { 
+          font-family: 'Libre Franklin', sans-serif; 
+        }
+        
+        .text-gold { 
+          color: #c9a962; 
+        }
+        
+        .bg-gold { 
+          background-color: #c9a962; 
+        }
+        
+        .border-gold { 
+          border-color: #c9a962; 
+        }
         
         .creek-line {
           background: linear-gradient(90deg, transparent 0%, #c9a962 20%, #c9a962 80%, transparent 100%);
@@ -85,15 +88,6 @@ export default function App() {
         
         .feature-card:hover {
           transform: translateY(-8px);
-        }
-
-        .hero-overlay {
-          background: linear-gradient(
-            to bottom,
-            rgba(0, 0, 0, 0.3) 0%,
-            rgba(0, 0, 0, 0.5) 50%,
-            rgba(0, 0, 0, 0.7) 100%
-          );
         }
       `}</style>
 
@@ -113,7 +107,7 @@ export default function App() {
       </nav>
 
       {/* Hero Section with Video */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-stone-900">
         {/* Video Background */}
         <div className="absolute inset-0 z-0">
           <video
@@ -133,42 +127,36 @@ export default function App() {
             alt="Woody Creek Ranch aerial view"
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ${videoLoaded ? 'opacity-0' : 'opacity-100'}`}
           />
-          {/* Hero Overlay */}
-          <div className="absolute inset-0 hero-overlay"></div>
+          {/* Dark Overlay */}
+          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         </div>
         
-        {/* Decorative elements */}
-        <div className="absolute top-20 left-10 w-64 h-64 border border-white/20 rounded-full z-10"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 border border-white/10 rounded-full z-10"></div>
-        
+        {/* Hero Content */}
         <div className="relative z-20 text-center px-6 max-w-5xl">
-          <p className="font-body text-xs tracking-[0.4em] uppercase text-gold mb-8 animate-fade-up stagger-1">
+          <p className="font-body text-xs tracking-widest uppercase text-gold mb-8">
             Est. 1982 · Collin County, TX
           </p>
           
-          <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-light tracking-wide mb-6 animate-fade-up stagger-2 text-white">
+          <h1 className="font-display text-6xl md:text-7xl lg:text-8xl font-light tracking-wide mb-6 text-white">
             Woody Creek
-            <span className="block text-4xl md:text-5xl lg:text-6xl italic text-stone-200 mt-2">Ranch</span>
+            <span className="block text-4xl md:text-5xl lg:text-6xl italic text-stone-300 mt-2">Ranch</span>
           </h1>
           
-          <div className="creek-line w-32 mx-auto my-10 animate-fade-up stagger-3"></div>
+          <div className="creek-line w-32 mx-auto my-10"></div>
           
-          <p className="font-body text-lg md:text-xl text-stone-300 font-light leading-relaxed max-w-2xl mx-auto animate-fade-up stagger-4">
-            1,500+ acres of pristine North Texas landscape, thoughtfully preserved <br className="hidden md:block" />
-            for those who understand the value of legacy.
+          <p className="font-body text-lg md:text-xl text-stone-300 font-light leading-relaxed max-w-2xl mx-auto mb-12">
+            1,500+ acres of pristine North Texas landscape, thoughtfully preserved for those who understand the value of legacy.
           </p>
           
-          <div className="mt-12 animate-fade-up stagger-4">
-            <a href="#story" className="font-body text-xs tracking-widest uppercase border-2 border-gold text-gold px-10 py-4 hover:bg-gold hover:text-stone-950 transition-all duration-300 inline-block">
-              Discover the Land
-            </a>
-          </div>
+          <a href="#story" className="font-body text-xs tracking-widest uppercase border-2 border-gold text-gold px-10 py-4 hover:bg-gold hover:text-stone-950 transition-all duration-300 inline-block">
+            Discover the Land
+          </a>
         </div>
         
         {/* Scroll indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-white/80 z-20">
+        <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-white opacity-80 z-20">
           <span className="font-body text-xs tracking-widest">SCROLL</span>
-          <div className="w-px h-12 bg-gradient-to-b from-white/60 to-transparent"></div>
+          <div className="w-px h-12 bg-gradient-to-b from-white opacity-60"></div>
         </div>
       </section>
 
@@ -177,7 +165,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 items-center">
             <div>
-              <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-6">The Vision</p>
+              <p className="font-body text-xs tracking-wide uppercase text-gold mb-6">The Vision</p>
               <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light mb-8 leading-tight">
                 Where Legacy<br />
                 <span className="italic text-stone-400">Meets Land</span>
@@ -196,15 +184,15 @@ export default function App() {
             </div>
             
             <div className="relative">
-              <div className="aspect-[4/5] relative overflow-hidden rounded-sm">
+              <div className="aspect-square md:aspect-4/5 relative overflow-hidden rounded-sm">
                 <img
                   src="/images/trails-lifestyle.png"
                   alt="Couple walking trails at Woody Creek Ranch"
                   className="absolute inset-0 w-full h-full object-cover object-left"
                 />
-                <div className="absolute inset-0 border border-gold/20"></div>
+                <div className="absolute inset-0 border border-gold border-opacity-20"></div>
               </div>
-              <div className="absolute -top-6 -right-6 w-24 h-24 bg-gold/10"></div>
+              <div className="absolute -top-6 -right-6 w-24 h-24 bg-gold bg-opacity-10"></div>
             </div>
           </div>
         </div>
@@ -214,7 +202,7 @@ export default function App() {
       <section id="land" className="relative py-24 md:py-32 bg-stone-950">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16 md:mb-20">
-            <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-6">The Property</p>
+            <p className="font-body text-xs tracking-wide uppercase text-gold mb-6">The Property</p>
             <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light mb-6">
               A Living <span className="italic text-stone-400">Landscape</span>
             </h2>
@@ -228,7 +216,7 @@ export default function App() {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="feature-card group relative aspect-[4/3] overflow-hidden rounded-sm cursor-pointer"
+                className="feature-card group relative aspect-4/3 overflow-hidden rounded-sm cursor-pointer"
               >
                 <img
                   src={feature.image}
@@ -236,7 +224,7 @@ export default function App() {
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   style={feature.objectPosition ? { objectPosition: feature.objectPosition } : undefined}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-stone-950 via-stone-950 via-opacity-50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity"></div>
                 <div className="absolute bottom-0 left-0 right-0 p-6">
                   <h3 className="font-display text-2xl mb-2 text-white">{feature.title}</h3>
                   <p className="font-body text-sm text-stone-300 font-light opacity-0 group-hover:opacity-100 transition-opacity duration-300">{feature.desc}</p>
@@ -263,12 +251,12 @@ export default function App() {
       </section>
 
       {/* Parallax Image Divider */}
-      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden">
+      <section className="relative h-96 md:h-screen overflow-hidden">
         <div 
           className="absolute inset-0 bg-fixed bg-center bg-cover"
           style={{ backgroundImage: 'url(/images/heron-lake.png)' }}
         ></div>
-        <div className="absolute inset-0 bg-stone-950/60"></div>
+        <div className="absolute inset-0 bg-stone-950 bg-opacity-60"></div>
         <div className="relative z-10 h-full flex items-center justify-center text-center px-6">
           <blockquote className="max-w-3xl">
             <p className="font-display text-3xl md:text-4xl lg:text-5xl font-light italic text-white leading-relaxed">
@@ -286,7 +274,7 @@ export default function App() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-12">
             <div className="md:col-span-1">
-              <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-6">The Experience</p>
+              <p className="font-body text-xs tracking-wide uppercase text-gold mb-6">The Experience</p>
               <h2 className="font-display text-4xl md:text-5xl font-light leading-tight">
                 Live Within<br />
                 <span className="italic text-stone-400">Nature's Embrace</span>
@@ -300,7 +288,7 @@ export default function App() {
                 { title: 'Woodland Retreats', desc: 'Surrounded by the 800-acre tree farm, offering privacy and connection to cathedral-like forests.' },
                 { title: 'Meadow Views', desc: 'Open vistas across rolling grasslands, with the full expanse of Texas sky above.' },
               ].map((item, index) => (
-                <div key={index} className="border-l border-gold/30 pl-6">
+                <div key={index} className="border-l border-gold border-opacity-30 pl-6">
                   <h3 className="font-display text-xl mb-3 text-white">{item.title}</h3>
                   <p className="font-body text-sm text-stone-400 font-light leading-relaxed">{item.desc}</p>
                 </div>
@@ -314,7 +302,7 @@ export default function App() {
       <section className="py-24 md:py-32 bg-stone-950">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-6">Community</p>
+            <p className="font-body text-xs tracking-wide uppercase text-gold mb-6">Community</p>
             <h2 className="font-display text-4xl md:text-5xl font-light">
               Shared <span className="italic text-stone-400">Experiences</span>
             </h2>
@@ -329,7 +317,7 @@ export default function App() {
               'Community Events',
               'Agricultural Connection',
             ].map((amenity, index) => (
-              <div key={index} className="font-body text-sm tracking-wide text-stone-400 border border-stone-800 px-6 py-3 hover:border-gold/50 hover:text-gold transition-all duration-300">
+              <div key={index} className="font-body text-sm tracking-wide text-stone-400 border border-stone-800 px-6 py-3 hover:border-gold hover:border-opacity-50 hover:text-gold transition-all duration-300">
                 {amenity}
               </div>
             ))}
@@ -340,7 +328,7 @@ export default function App() {
       {/* Contact Section */}
       <section id="inquire" className="relative py-24 md:py-32 bg-stone-900">
         <div className="max-w-3xl mx-auto px-6 text-center">
-          <p className="font-body text-xs tracking-[0.3em] uppercase text-gold mb-6">Begin the Conversation</p>
+          <p className="font-body text-xs tracking-wide uppercase text-gold mb-6">Begin the Conversation</p>
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light mb-8">
             Your Legacy <span className="italic text-stone-400">Awaits</span>
           </h2>
